@@ -98,7 +98,7 @@ defmodule InnerAppWeb do
   def verified_routes do
     quote do
       use Phoenix.VerifiedRoutes,
-        endpoint: InnerAppWeb.Endpoint,
+        endpoint: Application.compile_env(:inner_app, :app_endpoint),
         router: InnerAppWeb.Router,
         statics: InnerAppWeb.static_paths()
     end

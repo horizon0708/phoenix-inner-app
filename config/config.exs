@@ -7,6 +7,8 @@
 # General application configuration
 import Config
 
+config :inner_app, app_endpoint: InnerAppWeb.Endpoint
+
 config :inner_app,
   ecto_repos: [InnerApp.Repo]
 
