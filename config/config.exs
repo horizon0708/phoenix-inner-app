@@ -7,8 +7,6 @@
 # General application configuration
 import Config
 
-config :inner_app, app_endpoint: InnerAppWeb.Endpoint
-
 config :inner_app,
   ecto_repos: [InnerApp.Repo]
 
@@ -20,7 +18,9 @@ config :inner_app, InnerAppWeb.Endpoint,
     layout: false
   ],
   pubsub_server: InnerApp.PubSub,
-  live_view: [signing_salt: "dTLRvMlo"]
+  live_view: [signing_salt: "dTLRvMlo"],
+  server: is_nil(System.get_env("HOST_ENDPOINT", nil)),
+  endpoint: System.get_env("HOST_ENDPOINT", nil)
 
 # Configures the mailer
 #
